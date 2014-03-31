@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+  ServerAdmin <%= node['tor-mirror']['admin_email'] %>
+  ServerName  <%= node['tor-mirror']['server_name'] %>
+
+  DocumentRoot <%= node['tor-mirror']['basedir'] %>
+
+  <Directory <%= node['tor-mirror']['basedir'] %>>
+    Options MultiViews Indexes
+    DirectoryIndex index
+    AllowOverride None
+  </Directory>
+</VirtualHost>

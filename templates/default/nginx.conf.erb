@@ -1,0 +1,11 @@
+server {
+  listen <%= node['tor-mirror']['nginx']['enable_ipv6'] ? "[::]" : "" %>80;
+  server_name <%= node['tor-mirror']['server_name'] %>;
+
+  root <%= node['tor-mirror']['basedir'] %>
+  index index.html.en;
+
+  location ^~ /dist/ {
+    autoindex on;
+  }
+}
